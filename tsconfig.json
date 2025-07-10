@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                         // Versión de JavaScript generada
+    "module": "NodeNext",                       // Para Node.js
+    "moduleResolution": "NodeNext",             // Resolución de módulos al estilo Node.js
+    "rootDir": "src",                           // Carpeta donde están tus archivos .ts
+    "outDir": "dist",                           // Carpeta donde se generarán los archivos .js 
+    "lib": ["ESNext"],                         
+    "strict": false,                             // Reglas estrictas de TypeScript
+    "esModuleInterop": true,                    // Compatibilidad con módulos CommonJS/ESM
+    "forceConsistentCasingInFileNames": true,   // Sensibilidad en mayúsculas/minúsculas
+    "sourceMap": true,                          // Genera archivos .map para depuración
+    "skipLibCheck": true,                        // Salta revisión de tipos de librerías (más rápido)
+    "declaration": true,                        // genera archivos de declaración .d.ts
+    "experimentalDecorators": true,             // Habilita decoradores
+    "emitDecoratorMetadata": true,              // Habilita metadatos de decoradores
+  },
+  "include": ["src/**/*.ts"],                   // Incluye solo el código fuente
+  "exclude": ["node_modules"]                   // Excluye carpetas que no se deben compilar
+}
