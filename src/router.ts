@@ -13,14 +13,21 @@ router.get("/", (req, res) => {
 // POST / - Crear un producto con validaciones
 router.post(
   "/",
-  [
-    body("name").notEmpty().withMessage("El nombre es obligatorio"),
-    body("price").isFloat({ min: 0 }).withMessage("El precio debe ser un número mayor o igual a 0"),
-    handleInputErrors, // ✅ Se ejecuta solo si las validaciones pasan
-  ],
+
+  body("name")
+    .notEmpty()
+    .withMessage("El nombre es obligatorio")
+    .isLength({ min: 3 })
+    .withMessage("El nombre debe tener al menos 3 caracteres")
+    .matches(/^[a-zA-Z\s]+$/)
+    .withMessage("El nombre solo puede contener letras y espacios"),
+
+  body("price")
+    .isFloat({ min: 0 })
+    .withMessage("El precio debe ser un número mayor o igual a 0"),
+  handleInputErrors, // ✅ Se ejecuta solo si las validaciones pasan
   createProduct
 );
-
 
 // PUT, PATCH, DELETE de ejemplo
 router.put("/", (req, res) => {

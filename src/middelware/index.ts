@@ -9,10 +9,8 @@ export const handleInputErrors = (
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.status(400).json({
-      errors: errors.array().map(err => ({
-        field: err.param,
-        message: err.msg,
-      })),
+      errors: errors.array(),
+      message: "Error de validación en los datos de entrada",
     });
     return;
   }

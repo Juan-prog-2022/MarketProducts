@@ -12,13 +12,13 @@ export const createProduct = async (req: Request, res: Response) => {
     const product = await Product.create(req.body);
 
     // Respondemos con el producto creado
-    return res.status(201).json({
+     res.status(201).json({
       data: product,
       message: "Producto creado correctamente",
     });
   } catch (error) {
     console.error("Error al crear producto:", error);
-    return res.status(500).json({ message: "Error interno del servidor" });
+    res.status(500).json({ message: "Error interno del servidor" });
   }
 };
 
